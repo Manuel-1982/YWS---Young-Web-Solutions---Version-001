@@ -176,22 +176,98 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* 7. Contact / Package Inquiry Form Submission */
+  /* 7. Contact / Package Inquiry Form Submission (E-Mail-Versand an manuel.jung@online.de) */
+  const TARGET_EMAIL = 'manuel.jung@online.de';
   const forms = document.querySelectorAll('.js-inquiry-form');
-  forms.forEach((form) => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const feedback = form.querySelector('.form-feedback');
-      const nameInput = form.querySelector('[name="name"]');
-      const pkgInput = form.querySelector('[name="package"]');
-      const userName = nameInput && nameInput.value ? nameInput.value : 'Ihnen';
-      const chosenPkg = pkgInput && pkgInput.value ? ` zum Paket „${pkgInput.value}"` : '';
 
-      if (feedback) {
-        feedback.textContent = `Vielen Dank, ${userName}! Ihre unverbindliche Anfrage${chosenPkg} ist eingegangen. Ich melde mich zeitnah persönlich bei Ihnen.`;
-        feedback.classList.add('is-visible');
+  forms.forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const feedback = form.querySelector('.form-feedback');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.textContent : '';
+
+      const nameVal = (form.querySelector('[name="name"]')?.value || '').trim();
+      const emailVal = (form.querySelector('[name="email"]')?.value || '').trim();
+      const websiteVal = (form.querySelector('[name="website"]')?.value || '').trim() || 'Keine Angabe';
+      const packageVal = (form.querySelector('[name="package"]')?.value || '').trim() || 'Keine Auswahl';
+      const messageVal = (form.querySelector('[name="message"]')?.value || '').trim() || 'Keine Nachricht';
+
+      const subject = `Neue Website-Anfrage (${packageVal}) von ${nameVal}`;
+      const bodyLines = [
+        `Neue Projektanfrage über Young Web Solutions:`,
+        `--------------------------------------------`,
+        `Name: ${nameVal}`,
+        `E-Mail: ${emailVal}`,
+        `Gewünschtes Paket: ${packageVal}`,
+        `Aktuelle Website: ${websiteVal}`,
+        ``,
+        `Nachricht:`,
+        messageVal
+      ];
+      const mailtoUrl = `mailto:${TARGET_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\r\n'))}`;
+
+      // Wenn die Datei lokal (file://) geöffnet wird, blockieren Browser Hintergrund-Requests (CORS).
+      // Daher öffnen wir lokal direkt das E-Mail-Programm mit allen vorausgefüllten Daten.
+      if (window.location.protocol === 'file:') {
+        window.location.href = mailtoUrl;
+        if (feedback) {
+          feedback.innerHTML = `Vielen Dank, <strong>${nameVal || 'Ihnen'}</strong>! Da die Seite lokal geöffnet ist, wurde Ihr E-Mail-Programm mit Ihrer Anfrage an <strong>${TARGET_EMAIL}</strong> geöffnet. (Auf einem Webserver wird die E-Mail automatisch direkt im Hintergrund versendet.)`;
+          feedback.classList.add('is-visible');
+        }
+        form.reset();
+        return;
       }
-      form.reset();
+
+      // Auf einem Webserver (http:// oder https://): Direkter E-Mail-Versand via FormSubmit
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Wird gesendet …';
+      }
+
+      try {
+        const response = await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            _subject: subject,
+            Name: nameVal,
+            Email: emailVal,
+            Paket: packageVal,
+            Website: websiteVal,
+            Nachricht: messageVal,
+            _template: 'table'
+          })
+        });
+
+        const result = await response.json();
+
+        if (response.ok && (result.success === 'true' || result.success === true)) {
+          if (feedback) {
+            feedback.innerHTML = `Vielen Dank, <strong>${nameVal}</strong>! Ihre Anfrage zum Paket „${packageVal}“ wurde erfolgreich per E-Mail an <strong>${TARGET_EMAIL}</strong> gesendet.`;
+            feedback.classList.add('is-visible');
+          }
+          form.reset();
+        } else {
+          throw new Error(result.message || 'Versand über FormSubmit noch nicht aktiviert');
+        }
+      } catch (err) {
+        // Fallback: Öffnet das E-Mail-Programm, falls der Dienst noch nicht bestätigt oder offline ist
+        window.location.href = mailtoUrl;
+        if (feedback) {
+          feedback.innerHTML = `Ihre Anfrage wurde für den Versand an <strong>${TARGET_EMAIL}</strong> vorbereitet. Falls sich Ihr E-Mail-Programm nicht automatisch geöffnet hat, <a href="${mailtoUrl}" style="text-decoration:underline;font-weight:700;">klicken Sie bitte hier zum Absenden</a>.`;
+          feedback.classList.add('is-visible');
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      }
     });
   });
 });

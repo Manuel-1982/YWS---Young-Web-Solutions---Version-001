@@ -1286,10 +1286,10 @@ textarea.form-control {
 
 .footer-grid {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 2.5rem;
+  gap: 4.5rem;
   padding-bottom: 3rem;
   border-bottom: 1px solid var(--border-light);
 }
