@@ -180,6 +180,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const TARGET_EMAIL = 'manuel.jung@online.de';
   const forms = document.querySelectorAll('.js-inquiry-form');
 
+  function openMailClient(mailtoUrl) {
+    const link = document.createElement('a');
+    link.href = mailtoUrl;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   forms.forEach((form) => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -208,60 +217,69 @@ document.addEventListener('DOMContentLoaded', () => {
       ];
       const mailtoUrl = `mailto:${TARGET_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\r\n'))}`;
 
-      // Wenn die Datei lokal (file://) geöffnet wird, blockieren Browser Hintergrund-Requests (CORS).
-      // Daher öffnen wir lokal direkt das E-Mail-Programm mit allen vorausgefüllten Daten.
-      if (window.location.protocol === 'file:') {
-        window.location.href = mailtoUrl;
+      const isLocal =
+        window.location.protocol === 'file:' ||
+        window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1' ||
+        window.location.hostname === '';
+
+      // Lokal (file:// oder localhost): Sofort ohne Wartezeit E-Mail-Programm mit allen Daten öffnen
+      if (isLocal) {
+        openMailClient(mailtoUrl);
         if (feedback) {
-          feedback.innerHTML = `Vielen Dank, <strong>${nameVal || 'Ihnen'}</strong>! Da die Seite lokal geöffnet ist, wurde Ihr E-Mail-Programm mit Ihrer Anfrage an <strong>${TARGET_EMAIL}</strong> geöffnet. (Auf einem Webserver wird die E-Mail automatisch direkt im Hintergrund versendet.)`;
+          feedback.innerHTML = `Vielen Dank, <strong>${nameVal || 'Ihnen'}</strong>! Ihr E-Mail-Programm wurde mit Ihrer fertigen Anfrage an <strong>${TARGET_EMAIL}</strong> geöffnet. (<a href="${mailtoUrl}" style="text-decoration:underline;font-weight:700;">Hier klicken, falls es sich nicht automatisch geöffnet hat</a>)`;
           feedback.classList.add('is-visible');
         }
         form.reset();
         return;
       }
 
-      // Auf einem Webserver (http:// oder https://): Direkter E-Mail-Versand via FormSubmit
+      // Auf einem Webserver: Versuche direkten Versand über send-mail.php (mit kurzem 2,5s Timeout, damit nichts hängen bleibt)
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Wird gesendet …';
       }
 
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2500);
+
       try {
-        const response = await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, {
+        const response = await fetch('send-mail.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
           body: JSON.stringify({
-            _subject: subject,
-            Name: nameVal,
-            Email: emailVal,
-            Paket: packageVal,
-            Website: websiteVal,
-            Nachricht: messageVal,
-            _template: 'table'
-          })
+            name: nameVal,
+            email: emailVal,
+            package: packageVal,
+            website: websiteVal,
+            message: messageVal
+          }),
+          signal: controller.signal
         });
+        clearTimeout(timeoutId);
 
         const result = await response.json();
 
-        if (response.ok && (result.success === 'true' || result.success === true)) {
+        if (response.ok && result && result.success === true) {
           if (feedback) {
-            feedback.innerHTML = `Vielen Dank, <strong>${nameVal}</strong>! Ihre Anfrage zum Paket „${packageVal}“ wurde erfolgreich per E-Mail an <strong>${TARGET_EMAIL}</strong> gesendet.`;
+            feedback.innerHTML = `Vielen Dank, <strong>${nameVal}</strong>! Ihre Anfrage zum Paket „${packageVal}“ wurde direkt per E-Mail an <strong>${TARGET_EMAIL}</strong> gesendet.`;
             feedback.classList.add('is-visible');
           }
           form.reset();
         } else {
-          throw new Error(result.message || 'Versand über FormSubmit noch nicht aktiviert');
+          throw new Error('Fallback auf Mail-Client');
         }
       } catch (err) {
-        // Fallback: Öffnet das E-Mail-Programm, falls der Dienst noch nicht bestätigt oder offline ist
-        window.location.href = mailtoUrl;
+        clearTimeout(timeoutId);
+        openMailClient(mailtoUrl);
         if (feedback) {
-          feedback.innerHTML = `Ihre Anfrage wurde für den Versand an <strong>${TARGET_EMAIL}</strong> vorbereitet. Falls sich Ihr E-Mail-Programm nicht automatisch geöffnet hat, <a href="${mailtoUrl}" style="text-decoration:underline;font-weight:700;">klicken Sie bitte hier zum Absenden</a>.`;
+          feedback.innerHTML = `Vielen Dank, <strong>${nameVal || 'Ihnen'}</strong>! Ihr E-Mail-Programm wurde mit Ihrer fertigen Anfrage an <strong>${TARGET_EMAIL}</strong> geöffnet. (<a href="${mailtoUrl}" style="text-decoration:underline;font-weight:700;">Hier klicken, falls es sich nicht automatisch geöffnet hat</a>)`;
           feedback.classList.add('is-visible');
         }
+        form.reset();
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
