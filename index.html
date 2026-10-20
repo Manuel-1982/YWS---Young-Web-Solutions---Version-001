@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Young Web Solutions | Modernes Web- &amp; IT-Design zum Festpreis</title>
+  <meta name="description" content="Young Web Solutions aus dem Schwabenländle: Ich gestalte und erstelle Ihre moderne Website inklusive kompletter Datei-Übergabe und 100 % Zufriedenheitsgarantie." />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ======================= HEADER ======================= -->
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo" aria-label="Young Web Solutions Startseite">
+        <img src="assets/logo.png" alt="Young Web Solutions Logo" width="160" height="54" />
+      </a>
+
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <!-- Hauptseiten (kräftig & grafisch abgesetzt) -->
+        <div class="nav-group-pages" role="group" aria-label="Hauptseiten">
+          <a href="index.html" class="nav-link--page is-active">Startseite</a>
+          <a href="angebote.html" class="nav-link--page">Angebote &amp; Pakete</a>
+        </div>
+
+        <span class="nav-divider" aria-hidden="true"></span>
+
+        <!-- Sprungmarken auf dieser Seite (dezent mit ↓ Pfeil) -->
+        <div class="nav-group-sections" role="group" aria-label="Abschnitte auf dieser Seite">
+          <a href="#vorteile" class="nav-link--section">Prinzip</a>
+          <a href="#ablauf" class="nav-link--section">Ablauf</a>
+          <a href="#kontakt" class="nav-link--section">Kontakt</a>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="mobile-menu-btn" aria-label="Menü öffnen" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <!-- Immer sichtbar ganz rechts außen -->
+        <a href="ueber-uns.html" class="nav-about-right">Über mich</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================= HERO SECTION ======================= -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">
+            <span class="eyebrow__node"></span>
+            Webdesign aus dem Schwabenländle
+          </span>
+          <h1 class="h1-display">
+            Ihre Website:<br />
+            <span class="text-green">modern gestaltet</span> und schlüsselfertig erstellt.
+          </h1>
+          <p class="lead">
+            Viele bestehende Homepages sind inhaltlich gut, wirken optisch aber in die Jahre gekommen. Ich gestalte und erstelle Ihren Webauftritt modern, übersichtlich und mobilfreundlich. Am Ende übergebe ich Ihnen den kompletten erzeugten Website-Code ohne laufende Abo-Verpflichtung.
+          </p>
+
+          <div class="hero-actions">
+            <a href="angebote.html" class="btn btn--primary">
+              Zu den 3 Angebots-Paketen →
+            </a>
+            <a href="ueber-uns.html" class="btn btn--outline">
+              Mehr über mich erfahren
+            </a>
+          </div>
+
+          <div class="hero-trust">
+            <div class="trust-item">
+              <span class="trust-dot"></span>
+              100 % Zufriedenheitsgarantie
+            </div>
+            <div class="trust-item">
+              <span class="trust-dot"></span>
+              Komplette Code-Übergabe inklusive
+            </div>
+            <div class="trust-item">
+              <span class="trust-dot"></span>
+              Feste Paketpreise ab 590 €
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Before / After Transformation Card (ohne bunte Punkte & ohne Paket-Link) -->
+        <div class="showcase-card" aria-label="Interaktiver Vorher-Nachher-Vergleich">
+          <div class="showcase-card__top" style="justify-content:space-between;">
+            <span style="font-size:0.82rem;font-weight:700;color:var(--yws-navy);">Direktvergleich</span>
+            <div class="mode-switch" role="tablist" aria-label="Ansicht wechseln">
+              <button type="button" class="mode-switch__btn" data-view="before">Vorher (Bestand)</button>
+              <button type="button" class="mode-switch__btn is-active" data-view="after">Nachher (Neu)</button>
+            </div>
+          </div>
+
+          <div id="hero-preview-stage" class="preview-stage">
+            <div>
+              <span class="preview-badge preview-badge--new">Nachher · Frisches Design &amp; Klare Struktur</span>
+              <h3 class="h3-title" style="margin-bottom:0.5rem;">Aufgeräumtes Layout, moderner Stil &amp; sofort startklarer Code.</h3>
+              <p style="color:var(--text-muted);font-size:0.93rem;">
+                Ihre bestehenden Inhalte wirken endlich zeitgemäß, sind auf jedem Smartphone perfekt lesbar und werden Ihnen als fertiges HTML/CSS-Paket übergeben.
+              </p>
+            </div>
+            <div class="preview-metrics">
+              <div class="metric-box">
+                <span class="metric-box__val metric-box__val--good">Modern</span>
+                <span class="metric-box__label">Optik &amp; Layout</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-box__val metric-box__val--good">100 %</span>
+                <span class="metric-box__label">Code-Übergabe</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-box__val metric-box__val--good">0 € Risiko</span>
+                <span class="metric-box__label">Zufriedenheitsgarantie</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:1.1rem;font-size:0.82rem;color:var(--text-light);text-align:center;">
+            <span>Klicken Sie oben auf „Vorher / Nachher" zum Umschalten</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= PHILOSOPHY / BENEFITS SECTION ======================= -->
+    <section id="vorteile" class="section section--subtle-border">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">
+            <span class="eyebrow__node"></span>
+            Das Prinzip von Young Web Solutions
+          </span>
+          <h2 class="h2-title">Unkompliziert zur neuen Homepage. Ganz ohne Agentur-Ballast.</h2>
+          <p class="lead">
+            Klare Absprachen, saubere Umsetzung mit Liebe zum Detail und ein Ergebnis, das Ihnen am Ende vollständig selbst gehört.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="h3-title">Schickes, durchdachtes Design</h3>
+            <p>
+              Übersichtliche Seitenstruktur, angenehme Lesbarkeit und eine stimmige Darstellung auf Smartphones, Tablets und großen Bildschirmen, mit echtem Blick fürs Detail gestaltet.
+            </p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <h3 class="h3-title">Fertige Dateien &amp; voller Code-Besitz</h3>
+            <p>
+              Sie erhalten die komplett fertig erstellte Website (HTML, CSS, Skripte und Bilder) sauber gebündelt übergeben. Durch den schlanken Aufbau lädt die Seite zudem ganz nebenbei angenehm flüssig.
+            </p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="h3-title">100 % Zufriedenheitsgarantie</h3>
+            <p>
+              Sie kaufen keine Katze im Sack: Wenn Ihnen der fertige Entwurf wider Erwarten nicht zusagt, fallen keinerlei Kosten an. Erst wenn Sie zufrieden sind und wir Ihnen die fertigen Dateien zusenden, wird der Paketpreis fällig.
+            </p>
+          </article>
+        </div>
+
+        <!-- Guarantee Highlight Box -->
+        <div class="guarantee-banner">
+          <div class="guarantee-banner__badge" aria-hidden="true">✓</div>
+          <div class="guarantee-banner__content">
+            <h3 class="h3-title" style="margin-bottom:0.3rem;">Mein Fairness-Versprechen: Zahlen Sie erst, wenn Ihnen die Seite gefällt</h3>
+            <p style="color:var(--text-muted);font-size:0.95rem;">
+              Ich erstelle bzw. überarbeite Ihre Website zunächst zur Ansicht. Gefällt Ihnen das Ergebnis nicht, zahlen Sie keinen Cent. Erst mit Ihrer Freigabe und dem Versenden der fertigen Website-Dateien entstehen die vereinbarten Kosten.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= PACKAGES TEASER SECTION ======================= -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">
+            <span class="eyebrow__node"></span>
+            Unsere 3 Pakete
+          </span>
+          <h2 class="h2-title">Transparente Festpreise für jedes Vorhaben.</h2>
+          <p class="lead">
+            Ob Sie Ihrer bestehenden Homepage ein frisches Gewand verpassen wollen, gezielte Ergänzungen planen oder besondere Zusatzfunktionen wünschen: In jedem Paket ist die komplette Übergabe des erzeugten Codes enthalten.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Paket 1 Teaser -->
+          <article class="package-card">
+            <div>
+              <span class="package-tier">Paket 01 · Basis</span>
+              <h3 class="package-name">Fresh-Up</h3>
+              <p class="package-tagline">
+                Vorhandene Homepage überarbeiten: Alles schicker und moderner aufbereitet – ohne wesentliche neue Inhalte.
+              </p>
+              <div class="package-price-box">
+                <span class="package-price-label">Festpreis</span>
+                <div class="package-price">590 € <span>zzgl. MwSt.</span></div>
+                <p class="package-vat">Inkl. kompletter Übergabe des gesamten Codes</p>
+              </div>
+              <ul class="package-features">
+                <li><span class="check-icon">✓</span> Modernes Redesign Ihrer bestehenden Inhalte</li>
+                <li><span class="check-icon">✓</span> Optimierte Darstellung für Smartphone &amp; Desktop</li>
+                <li><span class="check-icon">✓</span> 1 kompakte Feinabstimmungs-Runde</li>
+                <li><span class="check-icon">✓</span> Komplette Übergabe aller HTML/CSS-Dateien</li>
+              </ul>
+            </div>
+            <a href="angebote.html?paket=freshup" class="btn btn--outline btn--full">Details zu Fresh-Up →</a>
+          </article>
+
+          <!-- Paket 2 Teaser (Featured) -->
+          <article class="package-card package-card--featured">
+            <span class="package-ribbon">Beliebteste Wahl</span>
+            <div>
+              <span class="package-tier">Paket 02 · Medium</span>
+              <h3 class="package-name">Evolution</h3>
+              <p class="package-tagline">
+                Gezielte Ergänzungen, neue Bereiche und Überarbeitungen nach persönlicher Abstimmung mit Ihnen.
+              </p>
+              <div class="package-price-box">
+                <span class="package-price-label">Festpreis</span>
+                <div class="package-price">990 € <span>zzgl. MwSt.</span></div>
+                <p class="package-vat">Inkl. kompletter Übergabe des gesamten Codes</p>
+              </div>
+              <ul class="package-features">
+                <li><span class="check-icon">✓</span> Alle Leistungen aus <strong>Fresh-Up</strong></li>
+                <li><span class="check-icon">✓</span> Inhaltliche &amp; strukturelle Ergänzungen (bis 3 neue Seiten/Sektionen)</li>
+                <li><span class="check-icon">✓</span> Überarbeitung &amp; Schärfung bestehender Inhalte</li>
+                <li><span class="check-icon">✓</span> <strong>2 persönliche Abstimmungsrunden</strong></li>
+              </ul>
+            </div>
+            <a href="angebote.html?paket=evolution" class="btn btn--primary btn--full">Details zu Evolution →</a>
+          </article>
+
+          <!-- Paket 3 Teaser -->
+          <article class="package-card">
+            <div>
+              <span class="package-tier">Paket 03 · Pro</span>
+              <h3 class="package-name">Signature</h3>
+              <p class="package-tagline">
+                Weitere individuelle Features, maßgeschneidertes Konzept und mehrere intensive Abstimmungsrunden.
+              </p>
+              <div class="package-price-box">
+                <span class="package-price-label">Festpreis</span>
+                <div class="package-price">1.890 € <span>zzgl. MwSt.</span></div>
+                <p class="package-vat">Für umfangreichere Seiten &amp; Spezialfunktionen</p>
+              </div>
+              <ul class="package-features">
+                <li><span class="check-icon">✓</span> Alle Leistungen aus <strong>Evolution</strong></li>
+                <li><span class="check-icon">✓</span> Individuelle Zusatz-Features (z. B. Rechner, Filter, interaktive Module)</li>
+                <li><span class="check-icon">✓</span> <strong>Mehrere iterative Abstimmungsrunden</strong> (bis zu 4 Meilensteine)</li>
+                <li><span class="check-icon">✓</span> Komplette Übergabe des gesamten Quellcodes</li>
+              </ul>
+            </div>
+            <a href="angebote.html?paket=signature" class="btn btn--navy btn--full">Details zu Signature →</a>
+          </article>
+        </div>
+
+        <div style="text-align:center;margin-top:2.8rem;">
+          <a href="angebote.html" class="btn btn--outline">
+            Vollständige Leistungsübersicht &amp; Paket-Vergleich öffnen →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 3-STEP WORKFLOW ======================= -->
+    <section id="ablauf" class="section section--subtle-border">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">
+            <span class="eyebrow__node"></span>
+            So einfach läuft es ab
+          </span>
+          <h2 class="h2-title">In 3 klaren Schritten zu Ihrer fertigen Website.</h2>
+          <p class="lead">
+            Direkter Austausch, strukturierte Umsetzung und null Risiko dank unserer Zufriedenheitsgarantie.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">01</span>
+            <h3 class="h3-title">Kurze Abstimmung &amp; Paketwahl</h3>
+            <p style="color:var(--text-muted);font-size:0.95rem;">
+              Wir schauen uns Ihre aktuelle Homepage (oder Ihre Vorstellungen) an und klären unkompliziert, ob <strong>Fresh-Up</strong>, <strong>Evolution</strong> oder <strong>Signature</strong> am besten passt.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number">02</span>
+            <h3 class="h3-title">Entwurf &amp; Abstimmungsrunden</h3>
+            <p style="color:var(--text-muted);font-size:0.95rem;">
+              Ich erstelle die neue Website und präsentiere Ihnen das Ergebnis. Je nach Paket feilen wir in einer oder mehreren Abstimmungsrunden gemeinsam an den Details – völlig risikofrei.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number">03</span>
+            <h3 class="h3-title">Datei-Übergabe (optional: Upload-Service)</h3>
+            <p style="color:var(--text-muted);font-size:0.95rem;">
+              Erst wenn Ihnen die Seite rundum gefällt, sende ich Ihnen den kompletten fertigen Website-Code (HTML, CSS, Bilder etc.) zu. <em>Hinweis: Falls Sie Unterstützung beim Hochladen oder bei der Domain wünschen, übernehme ich das auf Wunsch gerne als kleine Zusatzleistung.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CONTACT SECTION ======================= -->
+    <section id="kontakt" class="section">
+      <div class="container contact-grid">
+        <div class="contact-info-card">
+          <span class="eyebrow">
+            <span class="eyebrow__node"></span>
+            Direkter Kontakt
+          </span>
+          <h2 class="h2-title" style="font-size:1.85rem;">Schreiben Sie mir unverbindlich.</h2>
+          <p style="color:var(--text-muted);font-size:0.96rem;">
+            Schicken Sie mir gerne den Link zu Ihrer aktuellen Homepage oder ein paar Stichpunkte zu Ihrem Vorhaben. Ich melde mich zeitnah persönlich bei Ihnen zurück.
+          </p>
+
+          <div class="contact-list">
+            <div class="contact-list__item">
+              <div class="contact-list__icon" aria-hidden="true">📍</div>
+              <div>
+                <strong style="display:block;color:var(--yws-navy);font-size:0.92rem;">Region</strong>
+                <span style="color:var(--text-muted);font-size:0.95rem;">Region Reutlingen / Tübingen / Stuttgart (digital bundesweit)</span>
+              </div>
+            </div>
+
+            <div class="contact-list__item">
+              <div class="contact-list__icon" aria-hidden="true">✉</div>
+              <div>
+                <strong style="display:block;color:var(--yws-navy);font-size:0.92rem;">E-Mail</strong>
+                <a href="mailto:kontakt@young-web-solutions.de" style="color:var(--text-muted);font-size:0.95rem;">kontakt@young-web-solutions.de</a>
+              </div>
+            </div>
+
+            <div class="contact-list__item">
+              <div class="contact-list__icon" aria-hidden="true">✓</div>
+              <div>
+                <strong style="display:block;color:var(--yws-navy);font-size:0.92rem;">Zufriedenheitsgarantie</strong>
+                <span style="color:var(--text-muted);font-size:0.95rem;">Keine Kosten bei Nichtgefallen – Zahlung erst bei Datei-Versand</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3 class="h3-title" style="margin-bottom:0.35rem;">Unverbindliche Projektanfrage</h3>
+          <p style="color:var(--text-muted);font-size:0.92rem;margin-bottom:1.5rem;">
+            Kostenlos &amp; ohne Risiko anfragen.
+          </p>
+
+          <form class="js-inquiry-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="home-name">Ihr Name *</label>
+                <input class="form-control" type="text" id="home-name" name="name" placeholder="Max Mustermann" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="home-email">Ihre E-Mail-Adresse *</label>
+                <input class="form-control" type="email" id="home-email" name="email" placeholder="name@beispiel.de" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="home-url">Aktuelle Website (falls vorhanden)</label>
+                <input class="form-control" type="text" id="home-url" name="website" placeholder="www.ihre-homepage.de" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="package-select">Gewünschtes Paket</label>
+                <select class="form-control" id="package-select" name="package">
+                  <option value="Noch unsicher – bitte beraten">Noch unsicher – bitte beraten</option>
+                  <option value="Fresh-Up (Basispaket – 590 €)">Fresh-Up (Basispaket – 590 €)</option>
+                  <option value="Evolution (Medium-Paket – 990 €)">Evolution (Medium-Paket – 990 €)</option>
+                  <option value="Signature (Pro-Paket – 1.890 €)">Signature (Pro-Paket – 1.890 €)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="home-msg">Kurze Nachricht zu Ihrem Vorhaben</label>
+              <textarea class="form-control" id="home-msg" name="message" placeholder="Was möchten Sie an Ihrer Homepage überarbeiten oder neu gestalten?"></textarea>
+            </div>
+
+            <label class="form-checkbox">
+              <input type="checkbox" required />
+              <span>Ich stimme zu, dass meine Angaben zur Beantwortung meiner Anfrage verarbeitet werden. Weitere Informationen in der <a href="datenschutz.html">Datenschutzerklärung</a>.</span>
+            </label>
+
+            <button type="submit" class="btn btn--primary btn--full">Anfrage jetzt absenden →</button>
+            <div class="form-feedback" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <img src="assets/logo.png" alt="Young Web Solutions Logo" width="145" height="48" />
+          </a>
+          <p>
+            Modernes Web- &amp; IT-Design aus dem Schwabenländle mit kompletter Datei-Übergabe und 100 % Zufriedenheitsgarantie.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Hauptseiten</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="angebote.html">Angebote &amp; Pakete</a></li>
+            <li><a href="ueber-uns.html">Über mich</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Unsere Pakete</h4>
+          <ul class="footer-links">
+            <li><a href="angebote.html?paket=freshup">01 · Fresh-Up (590 €)</a></li>
+            <li><a href="angebote.html?paket=evolution">02 · Evolution (990 €)</a></li>
+            <li><a href="angebote.html?paket=signature">03 · Signature (1.890 €)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Rechtliches</h4>
+          <ul class="footer-links">
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+            <li><a href="agb.html">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Young Web Solutions. Alle Rechte vorbehalten.</span>
+        <span>100 % Zufriedenheitsgarantie · Komplette Code-Übergabe inklusive.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angebote & Pakete | Young Web Solutions</title>
+  <meta name="description" content="Unsere 3 Webdesign-Pakete im Überblick: Fresh-Up (590 €), Evolution (990 €) und Signature (1.890 €) – inklusive kompletter Code-Übergabe und Zufriedenheitsgarantie." />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ======================= HEADER ======================= -->
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo" aria-label="Young Web Solutions Startseite">
+        <img src="assets/logo.png" alt="Young Web Solutions Logo" width="160" height="54" />
+      </a>
+
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <!-- Hauptseiten (kräftig & grafisch abgesetzt) -->
+        <div class="nav-group-pages" role="group" aria-label="Hauptseiten">
+          <a href="index.html" class="nav-link--page">Startseite</a>
+          <a href="angebote.html" class="nav-link--page is-active">Angebote &amp; Pakete</a>
+        </div>
+
+        <span class="nav-divider" aria-hidden="true"></span>
+
+        <!-- Sprungmarken auf dieser Seite (dezent mit ↓ Pfeil) -->
+        <div class="nav-group-sections" role="group" aria-label="Abschnitte auf dieser Seite">
+          <a href="#vergleich" class="nav-link--section">Paket-Vergleich</a>
+          <a href="#faq" class="nav-link--section">Häufige Fragen</a>
+          <a href="#anfrage" class="nav-link--section">Anfrage</a>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="mobile-menu-btn" aria-label="Menü öffnen" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <!-- Immer sichtbar ganz rechts außen -->
+        <a href="ueber-uns.html" class="nav-about-right">Über mich</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================= PAGE HERO & INTERACTIVE FINDER ======================= -->
+    <section class="section" style="padding-bottom:2rem;">
+      <div class="container">
+        <div class="section-header" style="max-width:780px;margin-bottom:3rem;">
+          <span class="eyebrow">
+            <span class="eyebrow__node"></span>
+            Transparente Angebote · Inklusive Code-Übergabe
+          </span>
+          <h1 class="h1-display">
+            Drei klare Pakete für Ihren <span class="text-green">neuen Webauftritt.</span>
+          </h1>
+          <p class="lead">
+            Vom optischen Feinschliff Ihrer vorhandenen Homepage über gezielte Erweiterungen bis zur umfangreichen Pro-Lösung. In jedem Paket erhalten Sie den gesamten erzeugten Website-Code, abgesichert durch unsere 100 % Zufriedenheitsgarantie.
+          </p>
+        </div>
+
+        <!-- Interactive Quick Advisor -->
+        <div class="finder-box" aria-label="Interaktiver Paket-Berater">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+            <div>
+              <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:var(--yws-green-dark);">Schnell-Orientierung</span>
+              <h2 style="font-size:1.35rem;margin-top:0.2rem;">Welche Ausgangssituation trifft am besten auf Sie zu?</h2>
+            </div>
+            <span style="font-size:0.85rem;color:var(--text-light);">Klicken Sie auf eine Option:</span>
+          </div>
+
+          <div class="finder-options">
+            <button type="button" class="finder-option" data-recommend="freshup">
+              <span class="finder-option__title">1. „Inhalte passen – Optik ist veraltet"</span>
+              <span class="finder-option__desc">Meine Website steht inhaltlich, soll aber deutlich schicker, moderner und mobilfreundlicher gestaltet werden – ohne wesentliche neue Inhalte.</span>
+            </button>
+
+            <button type="button" class="finder-option is-selected" data-recommend="evolution">
+              <span class="finder-option__title">2. „Überarbeitung + Ergänzungen nach Abstimmung"</span>
+              <span class="finder-option__desc">Ich möchte meine Seite modernisieren, bestehende Inhalte überarbeiten und nach gemeinsamer Abstimmung neue Bereiche ergänzen.</span>
+            </button>
+
+            <button type="button" class="finder-option" data-recommend="signature">
+              <span class="finder-option__title">3. „Weitere Features &amp; mehrere Abstimmungsrunden"</span>
+              <span class="finder-option__desc">Ich wünsche mir zusätzliche Funktionen (z. B. Rechner, Filter, Spezialmodule) und mehrere ausführliche Abstimmungsrunden bis ins Detail.</span>
+            </button>
+          </div>
+
+          <div id="finder-result" class="finder-result">
+            <div>
+              <strong style="color:var(--yws-navy);display:block;font-size:1.02rem;">Paket 02: Evolution (990 €)</strong>
+              <span style="color:var(--text-muted);font-size:0.9rem;">Unsere Empfehlung: Wir überarbeiten Ihre Seite optisch und ergänzen gezielt neue Bereiche oder Inhalte in 2 persönlichen Abstimmungsrunden.</span>
+            </div>
+            <a href="#anfrage" class="btn btn--primary btn--sm" data-select-package="Evolution (Medium-Paket – 990 €)">
+              Dieses Paket wählen →
+            </a>
+          </div>
+        </div>
+
+        <!-- ======================= THE 3 MAIN PACKAGES ======================= -->
+        <div class="pricing-grid">
+
+          <!-- 1. BASISPAKET: FRESH-UP -->
+          <article class="package-card" data-package-id="freshup">
+            <div>
+              <span class="package-tier">Paket 01 · Basispaket</span>
+              <h2 class="package-name">Fresh-Up</h2>
+              <p class="package-tagline">
+                <strong>Der optische &amp; technische Feinschliff:</strong> Vorhandene Homepage überarbeiten – alles schicker, moderner und besser aufbereitet, ohne wesentliche neue Inhalte.
+              </p>
+
+              <div class="package-price-box">
+                <span class="package-price-label">Einmaliger Festpreis</span>
+                <div class="package-price">590 € <span>zzgl. MwSt.</span></div>
+                <p class="package-vat">Zahlung erst bei Gefallen &amp; Datei-Versand</p>
+              </div>
+
+              <div class="package-ideal">
+                <strong>Ideal für Sie, wenn:</strong> Ihre bestehenden Texte und Bilder im Kern bereits passen, die Website aber optisch veraltet wirkt oder auf dem Smartphone unübersichtlich aussieht.
+              </div>
+
+              <ul class="package-features">
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Modernes Design-Upgrade:</strong> Frisches, ansprechendes Layout für Ihre bestehenden Seiten (bis zu 5 Unterseiten)</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Übernahme vorhandener Inhalte:</strong> Saubere Strukturierung Ihrer bestehenden Texte, Bilder und Ihres Logos</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Optimiert für alle Geräte:</strong> Schicke Darstellung auf Smartphones, Tablets und Desktop-Bildschirmen</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Rechtliche Seiten inklusive:</strong> Saubere Einbindung von Impressum und Datenschutzerklärung</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>1 kompakte Abstimmungsrunde:</strong> Gemeinsamer Feinschliff am Entwurf</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Komplette Code-Übergabe:</strong> Sie erhalten sämtliche fertigen HTML-, CSS- und Bild-Dateien</span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#anfrage" class="btn btn--outline btn--full" data-select-package="Fresh-Up (Basispaket – 590 €)">
+              „Fresh-Up" anfragen →
+            </a>
+          </article>
+
+          <!-- 2. MEDIUM-PAKET: EVOLUTION -->
+          <article class="package-card package-card--featured is-recommended-highlight" data-package-id="evolution">
+            <span class="package-ribbon">Preis-Leistungs-Tipp</span>
+            <div>
+              <span class="package-tier">Paket 02 · Medium-Paket</span>
+              <h2 class="package-name">Evolution</h2>
+              <p class="package-tagline">
+                <strong>Überarbeitung plus Ausbau:</strong> Gezielte Ergänzungen, neue Abschnitte und inhaltliche Überarbeitungen nach persönlicher Abstimmung mit Ihnen.
+              </p>
+
+              <div class="package-price-box">
+                <span class="package-price-label">Einmaliger Festpreis</span>
+                <div class="package-price">990 € <span>zzgl. MwSt.</span></div>
+                <p class="package-vat">Inkl. kompletter Übergabe des gesamten Codes</p>
+              </div>
+
+              <div class="package-ideal">
+                <strong>Ideal für Sie, wenn:</strong> Sie Ihre Homepage nicht nur verschönern, sondern im Zuge der Überarbeitung auch neue Bereiche, Unterseiten oder überarbeitete Inhalte ergänzen möchten.
+              </div>
+
+              <ul class="package-features">
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Alle Leistungen aus „Fresh-Up"</strong> inklusive</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Inhaltliche Ergänzungen:</strong> Ausbau um bis zu 3 zusätzliche Unterseiten oder neue Themenbereiche (insg. bis zu 8 Seiten)</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Überarbeitung nach Abstimmung:</strong> Gemeinsame Schärfung Ihrer Texte, Seitenstruktur und Kontaktmöglichkeiten</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Erweiterte Seitenelemente:</strong> Kontaktformular, interaktive FAQ-Bereiche oder Referenz-Sektionen</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>2 persönliche Abstimmungsrunden:</strong> Ausführliches Feedback zum Entwurf und vor der Fertigstellung</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Komplette Code-Übergabe:</strong> Alle erzeugten Website-Dateien gehören vollständig Ihnen</span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#anfrage" class="btn btn--primary btn--full" data-select-package="Evolution (Medium-Paket – 990 €)">
+              „Evolution" anfragen →
+            </a>
+          </article>
+
+          <!-- 3. PRO-PAKET: SIGNATURE -->
+          <article class="package-card" data-package-id="signature">
+            <div>
+              <span class="package-tier">Paket 03 · Pro-Paket</span>
+              <h2 class="package-name">Signature</h2>
+              <p class="package-tagline">
+                <strong>Maßgeschneiderte Lösung:</strong> Weitere individuelle Features, komplettes Wunschkonzept und mehrere intensive Abstimmungsrunden mit Ihnen.
+              </p>
+
+              <div class="package-price-box">
+                <span class="package-price-label">Einmaliger Festpreis</span>
+                <div class="package-price">1.890 € <span>zzgl. MwSt.</span></div>
+                <p class="package-vat">Für individuelle Features &amp; enge Begleitung</p>
+              </div>
+
+              <div class="package-ideal">
+                <strong>Ideal für Sie, wenn:</strong> Sie spezielle Zusatzfunktionen auf Ihrer Website benötigen und Wert auf mehrere ausführliche Abstimmungsschleifen bis ins letzte Detail legen.
+              </div>
+
+              <ul class="package-features">
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Alle Leistungen aus „Evolution"</strong> inklusive</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Weitere individuelle Features:</strong> Spezielle Funktionen wie interaktive Angebots-/Bedarfsrechner, Filter-Galerien, mehrstufige Formulare oder Mehrsprachigkeit</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Großer Seitenumfang:</strong> Individuelles Designkonzept für bis zu 14 Unterseiten inkl. maßgeschneiderter Grafikelemente</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Mehrere Abstimmungsrunden:</strong> Bis zu <strong>4 persönliche Abstimmungsrunden</strong> (Konzept, Design, Funktionen, Feinschliff)</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Komplette Code-Übergabe:</strong> Übergabe des gesamten sauber dokumentierten Quellcodes</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Optionaler Einrichtungs-Support:</strong> Begleitung nach der Übergabe bei Rückfragen</span>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#anfrage" class="btn btn--navy btn--full" data-select-package="Signature (Pro-Paket – 1.890 €)">
+              „Signature" anfragen →
+            </a>
+          </article>
+
+        </div>
+
+        <!-- Guarantee Banner right below packages -->
+        <div class="guarantee-banner">
+          <div class="guarantee-banner__badge" aria-hidden="true">✓</div>
+          <div class="guarantee-banner__content">
+            <h3 class="h3-title" style="margin-bottom:0.3rem;">100 % Zufriedenheitsgarantie bei allen 3 Paketen</h3>
+            <p style="color:var(--text-muted);font-size:0.95rem;">
+              Wenn Ihnen die erstellte bzw. überarbeitete Seite nicht zusagt, fallen für Sie <strong>keine Kosten</strong> an. Erst wenn Sie zufrieden sind und ich Ihnen die fertigen Website-Dateien zusende, entsteht der Rechnungsbetrag.
+            </p>
+          </div>
+          <a href="#anfrage" class="btn btn--outline">Jetzt risikofrei anfragen →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= DETAILED COMPARISON TABLE ======================= -->
+    <section id="vergleich" class="section section--subtle-border">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">
+            <span class="eyebrow__node"></span>
+            Alle Details im Direktvergleich
+          </span>
+          <h2 class="h2-title">Was ist in welchem Paket enthalten?</h2>
+          <p class="lead">
+            Volle Transparenz: Vergleichen Sie den genauen Leistungsumfang von Fresh-Up, Evolution und Signature.
+          </p>
+        </div>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Leistungsmerkmal</th>
+                <th>01 · Fresh-Up<br /><span style="font-weight:600;color:var(--yws-green-dark);font-size:0.85rem;">590 €</span></th>
+                <th>02 · Evolution<br /><span style="font-weight:600;color:var(--yws-green-dark);font-size:0.85rem;">990 €</span></th>
+                <th>03 · Signature<br /><span style="font-weight:600;color:var(--yws-green-dark);font-size:0.85rem;">1.890 €</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Grundfokus</strong></td>
+                <td>Vorhandene Seite schicker &amp; besser ohne neue Inhalte</td>
+                <td>Überarbeitung + gezielte Ergänzungen nach Abstimmung</td>
+                <td>Komplettlösung + weitere Features &amp; mehrere Runden</td>
+              </tr>
+              <tr>
+                <td><strong>Seitenumfang (Richtwert)</strong></td>
+                <td>Bis zu 5 bestehende Seiten</td>
+                <td>Bis zu 8 Seiten (inkl. Ergänzungen)</td>
+                <td>Bis zu 14 Seiten / individuell</td>
+              </tr>
+              <tr>
+                <td><strong>Ergänzungen &amp; neue Inhalte</strong></td>
+                <td>Übernahme bestehender Inhalte</td>
+                <td><strong>✓ Ja (nach Abstimmung)</strong></td>
+                <td><strong>✓ Umfassend inkl. Konzeption</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Persönliche Abstimmungsrunden</strong></td>
+                <td>1 kompakte Feedbackrunde</td>
+                <td><strong>2 Abstimmungsrunden</strong></td>
+                <td><strong>Mehrere Runden (bis zu 4 Meilensteine)</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Weitere individuelle Features</strong><br /><span style="font-size:0.82rem;color:var(--text-muted);">(z. B. Rechner, Filter, Spezial-Formulare)</span></td>
+                <td>—</td>
+                <td>Basis-Elemente (Kontaktformular, FAQ)</td>
+                <td><strong>✓ Individuelle Zusatz-Features</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Optimiert für Smartphone &amp; Desktop</strong></td>
+                <td>✓ Inklusive</td>
+                <td>✓ Inklusive</td>
+                <td>✓ Inklusive</td>
+              </tr>
+              <tr>
+                <td><strong>Impressum &amp; rechtliche Seiten</strong></td>
+                <td>✓ Inklusive</td>
+                <td>✓ Inklusive</td>
+                <td>✓ Inklusive</td>
+              </tr>
+              <tr>
+                <td><strong>Übergabe des gesamten erzeugten Codes</strong><br /><span style="font-size:0.82rem;color:var(--text-muted);">(Alle HTML-, CSS-, JS- &amp; Bilddateien)</span></td>
+                <td><strong>✓ 100 % inklusive</strong></td>
+                <td><strong>✓ 100 % inklusive</strong></td>
+                <td><strong>✓ 100 % inklusive</strong></td>
+              </tr>
+              <tr>
+                <td><strong>100 % Zufriedenheitsgarantie</strong><br /><span style="font-size:0.82rem;color:var(--text-muted);">(Kosten erst bei Gefallen &amp; Datei-Versand)</span></td>
+                <td><strong>✓ Inklusive</strong></td>
+                <td><strong>✓ Inklusive</strong></td>
+                <td><strong>✓ Inklusive</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= FAQ SECTION ======================= -->
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">
+            <span class="eyebrow__node"></span>
+            Gut zu wissen
+          </span>
+          <h2 class="h2-title">Häufige Fragen zu den Paketen &amp; zur Übergabe</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Erhalte ich am Ende den gesamten erzeugten Code der Website?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">
+                <strong>Ja, zu 100 %!</strong> Der gesamte erzeugte Programmcode (alle HTML-, CSS-, JavaScript- sowie Bild-Dateien) wird Ihnen vollständig übergeben. Das ist in jedem Paketpreis (<em>Fresh-Up</em>, <em>Evolution</em> und <em>Signature</em>) bereits komplett enthalten. Sie sind an kein Abo gebunden und haben die volle Kontrolle über Ihre Dateien.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Wie funktioniert die Zufriedenheitsgarantie genau?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">
+                Ganz einfach und ohne Kleingedrucktes: Ich gestalte und erstelle Ihre Website und zeige Ihnen den Entwurf zur Ansicht. Wenn Ihnen die Seite wider Erwarten nicht zusagt, fallen für Sie <strong>keinerlei Kosten</strong> an. Erst wenn Sie zufrieden sind und ich Ihnen die fertigen Website-Dateien zusende, entsteht der vereinbarte Paketpreis.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Was ist der Unterschied zwischen „Fresh-Up" (590 €) und „Evolution" (990 €)?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">
+                Beim Basispaket <strong>Fresh-Up (590 €)</strong> bleiben Ihre Inhalte im Wesentlichen so wie sie sind – wir machen die bestehende Seite optisch und technisch deutlich schicker. Das Paket <strong>Evolution (990 €)</strong> bietet zusätzlich Platz für neue Unterseiten oder Abschnitte, inhaltliche Überarbeitungen und eine zweite persönliche Abstimmungsrunde.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Wie kommen die fertigen Dateien später ins Internet?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer__inner">
+                Im Standard-Ablauf liefere ich Ihnen die komplett fertigen Website-Dateien (HTML, CSS usw.), die Sie direkt bei Ihrem bestehenden Webhosting-Anbieter hochladen können. Falls Sie sich nicht selbst um das Hochladen, Webspace oder das Buchen einer Domain kümmern möchten, biete ich Ihnen diesen Einrichtungs-Service auf Wunsch gerne als kleine Zusatzleistung an.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= PACKAGE INQUIRY FORM ======================= -->
+    <section id="anfrage" class="section section--subtle-border">
+      <div class="container contact-grid">
+        <div class="contact-info-card">
+          <span class="eyebrow">
+            <span class="eyebrow__node"></span>
+            Risikofrei starten
+          </span>
+          <h2 class="h2-title" style="font-size:1.85rem;">Welches Paket passt zu Ihrer Homepage?</h2>
+          <p style="color:var(--text-muted);font-size:0.95rem;">
+            Wählen Sie rechts Ihr Wunschpaket aus (oder lassen Sie sich unverbindlich beraten). Dank der Zufriedenheitsgarantie gehen Sie keinerlei finanzielles Risiko ein.
+          </p>
+
+          <div class="contact-list">
+            <div class="contact-list__item">
+              <div class="contact-list__icon" aria-hidden="true">✓</div>
+              <div>
+                <strong style="display:block;color:var(--yws-navy);font-size:0.92rem;">Zufriedenheitsgarantie inklusive</strong>
+                <span style="color:var(--text-muted);font-size:0.9rem;">Keine Kosten bei Nichtgefallen – Zahlung erst beim Versand der Dateien.</span>
+              </div>
+            </div>
+            <div class="contact-list__item">
+              <div class="contact-list__icon" aria-hidden="true">✓</div>
+              <div>
+                <strong style="display:block;color:var(--yws-navy);font-size:0.92rem;">Komplette Code-Übergabe</strong>
+                <span style="color:var(--text-muted);font-size:0.9rem;">Der gesamte erzeugte Code ist in jedem Paketpreis enthalten.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3 class="h3-title" style="margin-bottom:0.35rem;">Paket-Anfrage senden</h3>
+          <p style="color:var(--text-muted);font-size:0.92rem;margin-bottom:1.5rem;">
+            Füllen Sie kurz die Eckdaten aus – ich melde mich zeitnah persönlich bei Ihnen.
+          </p>
+
+          <form class="js-inquiry-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="pkg-name">Ihr Name *</label>
+                <input class="form-control" type="text" id="pkg-name" name="name" placeholder="Max Mustermann" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="pkg-email">Ihre E-Mail-Adresse *</label>
+                <input class="form-control" type="email" id="pkg-email" name="email" placeholder="name@beispiel.de" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="package-select">Gewähltes Angebotspaket *</label>
+                <select class="form-control" id="package-select" name="package" required>
+                  <option value="Evolution (Medium-Paket – 990 €)">Evolution (Medium-Paket – 990 €)</option>
+                  <option value="Fresh-Up (Basispaket – 590 €)">Fresh-Up (Basispaket – 590 €)</option>
+                  <option value="Signature (Pro-Paket – 1.890 €)">Signature (Pro-Paket – 1.890 €)</option>
+                  <option value="Noch unsicher – bitte beraten">Noch unsicher – bitte individuell beraten</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="pkg-url">Link zur bestehenden Homepage</label>
+                <input class="form-control" type="text" id="pkg-url" name="website" placeholder="https://www.ihre-website.de" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="pkg-msg">Ihre Wünsche, Ergänzungen oder Fragen</label>
+              <textarea class="form-control" id="pkg-msg" name="message" placeholder="Erzählen Sie mir kurz, was Ihnen an Ihrer überarbeiteten oder neuen Homepage wichtig ist..."></textarea>
+            </div>
+
+            <label class="form-checkbox">
+              <input type="checkbox" required />
+              <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> zur Kenntnis genommen und stimme der Kontaktaufnahme zu.</span>
+            </label>
+
+            <button type="submit" class="btn btn--primary btn--full">Unverbindlich anfragen →</button>
+            <div class="form-feedback" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <img src="assets/logo.png" alt="Young Web Solutions Logo" width="145" height="48" />
+          </a>
+          <p>
+            Modernes Web- &amp; IT-Design aus dem Schwabenländle mit kompletter Datei-Übergabe und 100 % Zufriedenheitsgarantie.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="angebote.html">Angebote &amp; Pakete</a></li>
+            <li><a href="ueber-uns.html">Über mich</a></li>
+            <li><a href="#faq">Häufige Fragen</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Unsere Pakete</h4>
+          <ul class="footer-links">
+            <li><a href="angebote.html?paket=freshup">01 · Fresh-Up (590 €)</a></li>
+            <li><a href="angebote.html?paket=evolution">02 · Evolution (990 €)</a></li>
+            <li><a href="angebote.html?paket=signature">03 · Signature (1.890 €)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Rechtliches</h4>
+          <ul class="footer-links">
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+            <li><a href="agb.html">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Young Web Solutions · Kirchentellinsfurt. Alle Rechte vorbehalten.</span>
+        <span>100 % Zufriedenheitsgarantie · Komplette Code-Übergabe inklusive.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

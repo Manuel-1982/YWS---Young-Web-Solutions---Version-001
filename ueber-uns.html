@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Über mich | Dr.-Ing. Manuel Jung · Young Web Solutions</title>
+  <meta name="description" content="Hinter Young Web Solutions steht Dr.-Ing. Manuel Jung aus dem Schwabenland: Erfahrener Ingenieur mit Leidenschaft für IT-Design, UIs und Grafiken." />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ======================= HEADER ======================= -->
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a href="index.html" class="brand-logo" aria-label="Young Web Solutions Startseite">
+        <img src="assets/logo.png" alt="Young Web Solutions Logo" width="160" height="54" />
+      </a>
+
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <!-- Hauptseiten (kräftig & grafisch abgesetzt) -->
+        <div class="nav-group-pages" role="group" aria-label="Hauptseiten">
+          <a href="index.html" class="nav-link--page">Startseite</a>
+          <a href="angebote.html" class="nav-link--page">Angebote &amp; Pakete</a>
+        </div>
+
+        <span class="nav-divider" aria-hidden="true"></span>
+
+        <!-- Sprungmarken auf dieser Seite (dezent mit ↓ Pfeil) -->
+        <div class="nav-group-sections" role="group" aria-label="Abschnitte auf dieser Seite">
+          <a href="#profil" class="nav-link--section">Profil</a>
+          <a href="#arbeitsweise" class="nav-link--section">Arbeitsweise</a>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="mobile-menu-btn" aria-label="Menü öffnen" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <!-- Immer sichtbar ganz rechts außen -->
+        <a href="ueber-uns.html" class="nav-about-right is-active">Über mich</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================= ABOUT HERO SECTION ======================= -->
+    <section id="profil" class="section">
+      <div class="container about-grid">
+        <div>
+          <span class="eyebrow">
+            <span class="eyebrow__node"></span>
+            Über Young Web Solutions
+          </span>
+          <h1 class="h1-display">
+            Erfahrener Ingenieur<br />
+            <span class="text-green">mit Projektblick und Liebe zum Detail.</span>
+          </h1>
+          <p class="lead" style="margin-bottom:1.15rem;">
+            Hinter <strong>Young Web Solutions</strong> steht kein Berufseinsteiger und keine anonyme Agentur, sondern ein promovierter Ingenieur aus dem <strong>Schwabenland</strong> mit fundierter Berufs- und Projekterfahrung.
+          </p>
+          <p style="color:var(--text-muted);font-size:1.02rem;margin-bottom:1.15rem;">
+            Aus meiner beruflichen Praxis weiß ich, wie man viele verschiedene Ideen und auch widersprüchliche Anforderungen strukturiert zusammenführt, um daraus ein klares, überzeugendes Ergebnis zu formen.
+          </p>
+          <p style="color:var(--text-muted);font-size:1.02rem;margin-bottom:1.5rem;">
+            Privat tüftle und code ich gerne im Bereich <strong>Smart Home</strong> und beschäftige mich seit jeher leidenschaftlich mit <strong>IT-Design</strong>: Benutzeroberflächen (UIs) gestalten, Grafiken entwerfen und moderne Webseiten konzipieren. Mit viel Liebe zum Detail und einem gewissen Hang zum Perfektionismus feile ich so lange am Entwurf, bis alles stimmig sitzt.
+          </p>
+
+          <!-- Persönliche Signatur -->
+          <div style="padding-top:1rem;border-top:1px solid var(--border-light);margin-bottom:1.8rem;">
+            <span style="display:block;font-size:1.25rem;font-weight:800;color:var(--yws-navy);letter-spacing:-0.01em;">
+              Dr.-Ing. Manuel Jung
+            </span>
+            <span style="font-size:0.88rem;color:var(--text-muted);font-weight:600;">
+              Gründer · Young Web Solutions
+            </span>
+          </div>
+
+          <div class="hero-actions" style="margin-top:0;">
+            <a href="angebote.html" class="btn btn--primary">Zu den 3 Paketen →</a>
+            <a href="index.html#kontakt" class="btn btn--outline">Direkt Kontakt aufnehmen</a>
+          </div>
+        </div>
+
+        <!-- Profile & Facts Card -->
+        <div class="profile-card">
+          <span class="eyebrow" style="margin-bottom:0.8rem;">
+            <span class="eyebrow__node"></span>
+            Kurzprofil
+          </span>
+          <h2 class="h2-title" style="font-size:1.65rem;margin-bottom:0.6rem;">Erfahrung trifft IT-Design.</h2>
+          <p style="color:var(--text-muted);font-size:0.95rem;">
+            Sie sprechen direkt mit mir: strukturiert, verlässlich und ohne Umwege.
+          </p>
+
+          <div class="profile-facts">
+            <div class="profile-fact">
+              <span class="profile-fact__label">Person</span>
+              <span class="profile-fact__value">Dr.-Ing. Manuel Jung</span>
+            </div>
+            <div class="profile-fact">
+              <span class="profile-fact__label">Standort</span>
+              <span class="profile-fact__value">Kirchentellinsfurt zwischen Tübingen, Reutlingen und Stuttgart</span>
+            </div>
+            <div class="profile-fact">
+              <span class="profile-fact__label">Schwerpunkt</span>
+              <span class="profile-fact__value">IT-Design, UIs &amp; Grafik</span>
+            </div>
+            <div class="profile-fact">
+              <span class="profile-fact__label">Arbeitsweise</span>
+              <span class="profile-fact__value">Projekterfahren &amp; präzise</span>
+            </div>
+          </div>
+
+          <div style="margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid var(--border-light);font-size:0.92rem;color:var(--text-muted);">
+            <strong style="color:var(--yws-navy);display:block;margin-bottom:0.25rem;">100 % Zufriedenheitsgarantie:</strong>
+            Wenn Ihnen die fertige Website nicht zusagt, fallen keine Kosten an. Erst wenn Sie zufrieden sind und ich Ihnen die erzeugten Dateien zusende, entstehen die vereinbarten Kosten.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= VALUES SECTION ======================= -->
+    <section id="arbeitsweise" class="section section--subtle-border">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">
+            <span class="eyebrow__node"></span>
+            Meine Arbeitsweise
+          </span>
+          <h2 class="h2-title">Worauf Sie sich verlassen können.</h2>
+        </div>
+
+        <div class="pillars-grid">
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 class="h3-title">Projekterfahrung &amp; Überblick</h3>
+            <p>
+              Viele Ideen und widersprüchliche Anforderungen bringe ich strukturiert zusammen und forme daraus ein klares, stimmiges Gesamtergebnis.
+            </p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="h3-title">IT-Design mit Blick fürs Detail</h3>
+            <p>
+              Ob Benutzeroberflächen, Grafiken oder Webseiten: Mit ausgeprägtem Sinn für Gestaltung und einem gesunden Perfektionismus sorge ich für ein sauberes Erscheinungsbild.
+            </p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+            </div>
+            <h3 class="h3-title">Moderne KI-gestützte Umsetzung</h3>
+            <p>
+              Durch den gezielten Einsatz moderner Werkzeuge setze ich Ihr Design effizient um. Am Ende erhalten Sie den gesamten erzeugten Website-Code vollständig zur freien Verfügung übergeben.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <img src="assets/logo.png" alt="Young Web Solutions Logo" width="145" height="48" />
+          </a>
+          <p>
+            Modernes Web- &amp; IT-Design aus dem Schwabenländle mit kompletter Datei-Übergabe und 100 % Zufriedenheitsgarantie.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Hauptseiten</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Startseite</a></li>
+            <li><a href="angebote.html">Angebote &amp; Pakete</a></li>
+            <li><a href="ueber-uns.html">Über mich</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Unsere Pakete</h4>
+          <ul class="footer-links">
+            <li><a href="angebote.html?paket=freshup">01 · Fresh-Up (590 €)</a></li>
+            <li><a href="angebote.html?paket=evolution">02 · Evolution (990 €)</a></li>
+            <li><a href="angebote.html?paket=signature">03 · Signature (1.890 €)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Rechtliches</h4>
+          <ul class="footer-links">
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+            <li><a href="agb.html">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Young Web Solutions · Dr.-Ing. Manuel Jung. Alle Rechte vorbehalten.</span>
+        <span>100 % Zufriedenheitsgarantie · Komplette Code-Übergabe inklusive.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
