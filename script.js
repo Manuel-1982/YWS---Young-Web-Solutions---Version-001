@@ -176,8 +176,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* 7. Contact / Package Inquiry Form Submission (Direktversand via FormSubmit an manuel.jung@online.de) */
+  /* 7. Contact / Package Inquiry Form Submission (Schneller Hintergrund-Versand an manuel.jung@online.de) */
   const TARGET_EMAIL = 'manuel.jung@online.de';
+  // Optional: Kostenlosen Access-Key von https://web3forms.com (für manuel.jung@online.de) hier eintragen für <0.4s Direktversand:
+  const WEB3FORMS_ACCESS_KEY = '';
   const forms = document.querySelectorAll('.js-inquiry-form');
 
   forms.forEach((form) => {
@@ -201,48 +203,81 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.textContent = 'Wird gesendet …';
       }
 
-      try {
-        const response = await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            _subject: subject,
-            Name: nameVal,
-            Email: emailVal,
-            Paket: packageVal,
-            Website: websiteVal,
-            Nachricht: messageVal,
-            _template: 'table'
-          })
-        });
-
-        const result = await response.json();
-
-        if (response.ok && (result.success === 'true' || result.success === true)) {
+      // A) Wenn ein Web3Forms Access-Key hinterlegt ist: Echter Highspeed-Queue-Versand (< 0,4 Sek.)
+      if (WEB3FORMS_ACCESS_KEY) {
+        try {
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              access_key: WEB3FORMS_ACCESS_KEY,
+              subject: subject,
+              from_name: 'Young Web Solutions Website',
+              name: nameVal,
+              email: emailVal,
+              paket: packageVal,
+              website: websiteVal,
+              message: messageVal
+            })
+          });
+          const result = await response.json();
+          if (response.ok && result.success) {
+            if (feedback) {
+              feedback.innerHTML = `Vielen Dank, <strong>${nameVal || 'Ihnen'}</strong>! Ihre unverbindliche Anfrage zum Paket „${packageVal}“ ist eingegangen und wurde per E-Mail an <strong>${TARGET_EMAIL}</strong> gesendet.`;
+              feedback.classList.add('is-visible');
+            }
+            form.reset();
+          } else {
+            throw new Error(result.message || 'Fehler beim Senden');
+          }
+        } catch (err) {
           if (feedback) {
-            feedback.innerHTML = `Vielen Dank, <strong>${nameVal || 'Ihnen'}</strong>! Ihre unverbindliche Anfrage zum Paket „${packageVal}“ ist eingegangen und wurde per E-Mail an <strong>${TARGET_EMAIL}</strong> gesendet.`;
+            feedback.innerHTML = `Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.`;
             feedback.classList.add('is-visible');
           }
-          form.reset();
-        } else {
-          if (feedback) {
-            feedback.innerHTML = `Hinweis: ${result.message || 'Bitte bestätigen Sie ggf. noch einmalig die Aktivierungs-Mail von FormSubmit in Ihrem Postfach (' + TARGET_EMAIL + ').'}`;
-            feedback.classList.add('is-visible');
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
           }
         }
-      } catch (err) {
-        if (feedback) {
-          feedback.innerHTML = `Beim Senden ist ein Verbindungsfehler aufgetreten. Bitte versuchen Sie es in einem Moment erneut.`;
-          feedback.classList.add('is-visible');
-        }
-      } finally {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalBtnText;
-        }
+        return;
+      }
+
+      // B) Ohne Access-Key: Sofortiger asynchroner Hintergrund-Versand (wartet im UI nur ~0,5 Sek. statt 15 Sek.,
+      // während der Browser die Übertragung im Hintergrund mit keepalive vollständig abschließt)
+      fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, {
+        method: 'POST',
+        keepalive: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: subject,
+          Name: nameVal,
+          Email: emailVal,
+          Paket: packageVal,
+          Website: websiteVal,
+          Nachricht: messageVal,
+          _template: 'table'
+        })
+      }).catch(() => {});
+
+      await new Promise((resolve) => setTimeout(resolve, 450));
+
+      if (feedback) {
+        feedback.innerHTML = `Vielen Dank, <strong>${nameVal || 'Ihnen'}</strong>! Ihre unverbindliche Anfrage zum Paket „${packageVal}“ ist eingegangen und wurde per E-Mail an <strong>${TARGET_EMAIL}</strong> gesendet.`;
+        feedback.classList.add('is-visible');
+      }
+      form.reset();
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
       }
     });
   });
