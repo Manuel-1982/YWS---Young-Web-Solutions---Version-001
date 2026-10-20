@@ -176,18 +176,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* 7. Contact / Package Inquiry Form Submission (E-Mail-Versand an manuel.jung@online.de) */
+  /* 7. Contact / Package Inquiry Form Submission (Direktversand via FormSubmit an manuel.jung@online.de) */
   const TARGET_EMAIL = 'manuel.jung@online.de';
   const forms = document.querySelectorAll('.js-inquiry-form');
-
-  function openMailClient(mailtoUrl) {
-    const link = document.createElement('a');
-    link.href = mailtoUrl;
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
 
   forms.forEach((form) => {
     form.addEventListener('submit', async (e) => {
@@ -204,82 +195,49 @@ document.addEventListener('DOMContentLoaded', () => {
       const messageVal = (form.querySelector('[name="message"]')?.value || '').trim() || 'Keine Nachricht';
 
       const subject = `Neue Website-Anfrage (${packageVal}) von ${nameVal}`;
-      const bodyLines = [
-        `Neue Projektanfrage über Young Web Solutions:`,
-        `--------------------------------------------`,
-        `Name: ${nameVal}`,
-        `E-Mail: ${emailVal}`,
-        `Gewünschtes Paket: ${packageVal}`,
-        `Aktuelle Website: ${websiteVal}`,
-        ``,
-        `Nachricht:`,
-        messageVal
-      ];
-      const mailtoUrl = `mailto:${TARGET_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\r\n'))}`;
 
-      const isLocal =
-        window.location.protocol === 'file:' ||
-        window.location.hostname === 'localhost' ||
-        window.location.hostname === '127.0.0.1' ||
-        window.location.hostname === '';
-
-      // Lokal (file:// oder localhost): Sofort ohne Wartezeit E-Mail-Programm mit allen Daten öffnen
-      if (isLocal) {
-        openMailClient(mailtoUrl);
-        if (feedback) {
-          feedback.innerHTML = `Vielen Dank, <strong>${nameVal || 'Ihnen'}</strong>! Ihr E-Mail-Programm wurde mit Ihrer fertigen Anfrage an <strong>${TARGET_EMAIL}</strong> geöffnet. (<a href="${mailtoUrl}" style="text-decoration:underline;font-weight:700;">Hier klicken, falls es sich nicht automatisch geöffnet hat</a>)`;
-          feedback.classList.add('is-visible');
-        }
-        form.reset();
-        return;
-      }
-
-      // Auf einem Webserver: Versuche direkten Versand über send-mail.php (mit kurzem 2,5s Timeout, damit nichts hängen bleibt)
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Wird gesendet …';
       }
 
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 2500);
-
       try {
-        const response = await fetch('send-mail.php', {
+        const response = await fetch(`https://formsubmit.co/ajax/${TARGET_EMAIL}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
           body: JSON.stringify({
-            name: nameVal,
-            email: emailVal,
-            package: packageVal,
-            website: websiteVal,
-            message: messageVal
-          }),
-          signal: controller.signal
+            _subject: subject,
+            Name: nameVal,
+            Email: emailVal,
+            Paket: packageVal,
+            Website: websiteVal,
+            Nachricht: messageVal,
+            _template: 'table'
+          })
         });
-        clearTimeout(timeoutId);
 
         const result = await response.json();
 
-        if (response.ok && result && result.success === true) {
+        if (response.ok && (result.success === 'true' || result.success === true)) {
           if (feedback) {
-            feedback.innerHTML = `Vielen Dank, <strong>${nameVal}</strong>! Ihre Anfrage zum Paket „${packageVal}“ wurde direkt per E-Mail an <strong>${TARGET_EMAIL}</strong> gesendet.`;
+            feedback.innerHTML = `Vielen Dank, <strong>${nameVal || 'Ihnen'}</strong>! Ihre unverbindliche Anfrage zum Paket „${packageVal}“ ist eingegangen und wurde per E-Mail an <strong>${TARGET_EMAIL}</strong> gesendet.`;
             feedback.classList.add('is-visible');
           }
           form.reset();
         } else {
-          throw new Error('Fallback auf Mail-Client');
+          if (feedback) {
+            feedback.innerHTML = `Hinweis: ${result.message || 'Bitte bestätigen Sie ggf. noch einmalig die Aktivierungs-Mail von FormSubmit in Ihrem Postfach (' + TARGET_EMAIL + ').'}`;
+            feedback.classList.add('is-visible');
+          }
         }
       } catch (err) {
-        clearTimeout(timeoutId);
-        openMailClient(mailtoUrl);
         if (feedback) {
-          feedback.innerHTML = `Vielen Dank, <strong>${nameVal || 'Ihnen'}</strong>! Ihr E-Mail-Programm wurde mit Ihrer fertigen Anfrage an <strong>${TARGET_EMAIL}</strong> geöffnet. (<a href="${mailtoUrl}" style="text-decoration:underline;font-weight:700;">Hier klicken, falls es sich nicht automatisch geöffnet hat</a>)`;
+          feedback.innerHTML = `Beim Senden ist ein Verbindungsfehler aufgetreten. Bitte versuchen Sie es in einem Moment erneut.`;
           feedback.classList.add('is-visible');
         }
-        form.reset();
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
